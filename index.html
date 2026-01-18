@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Periodic Table</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 min-h-screen text-white pb-12">
+
+    <header class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl md:text-5xl font-black text-center mb-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+            ELEMENTAL EXPLORER
+        </h1>
+        <p class="text-center text-gray-400">Interactive Periodic Table of Elements</p>
+    </header>
+
+    <main class="container mx-auto px-4">
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <div class="bg-gray-800 p-2 rounded-xl flex gap-2">
+                <button onclick="filterElements('all')" class="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition">All</button>
+                <button onclick="showQuiz()" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 transition font-bold">🧪 Take Quiz</button>
+            </div>
+            <input type="text" id="elementSearch" placeholder="Search by name or symbol..." 
+                   class="bg-gray-800 border border-gray-700 rounded-xl px-4 py-2 w-64 focus:ring-2 focus:ring-blue-500 outline-none">
+        </div>
+
+        <div class="overflow-x-auto pb-4">
+            <div id="periodic-table" class="periodic-grid mx-auto">
+                </div>
+        </div>
+
+        <div class="mt-8 max-w-4xl mx-auto bg-gray-800/50 p-6 rounded-2xl border border-gray-700">
+            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Symbol Color Key (State at STP)</h3>
+            <div class="flex flex-wrap gap-6 text-sm">
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-white"></span> Solid</div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-red-400"></span> Gas</div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-400"></span> Liquid</div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-gray-500"></span> Unknown</div>
+            </div>
+        </div>
+    </main>
+
+    <div id="element-modal" class="modal-overlay fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+        <div class="modal-content bg-gray-800 rounded-3xl max-w-md w-full p-8 shadow-2xl border border-gray-700">
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <div id="quiz-modal" class="modal-overlay fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+        <div class="modal-content bg-gray-800 rounded-3xl max-w-lg w-full p-8 shadow-2xl border border-gray-700">
+            <div id="quiz-content"></div>
+        </div>
+    </div>
+
+    <script src="elements-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
